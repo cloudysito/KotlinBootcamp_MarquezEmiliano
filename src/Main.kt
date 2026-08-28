@@ -81,5 +81,13 @@ fun main() {
     for (number in numbers) {
         stringList.add(number.toString())
     }
+    println("--------------------------")
 
+    // TASK 1: FUNCTIONS
+    dayOfWeek()
+    println("")
+
+    // TASK 2: FUNCTIONS
+    println("--------------------------")
+    println("Your fortune is: ${getFortuneCookie()}")
 }
