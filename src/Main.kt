@@ -89,5 +89,5 @@ fun main() {
 
     // TASK 2: FUNCTIONS
     println("--------------------------")
-    println("Your fortune is: ${getFortuneCookie()}")
+    println("Your fortune is: ${getFortuneCookie(getBirthday())}")
 }
