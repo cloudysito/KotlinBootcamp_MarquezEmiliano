@@ -8,19 +8,34 @@ package spices
 // Add an init block that prints out the values for the object after it has been created. Create a spice.
 // Create a list of spices that are spicy or less than spicy. Hint: Use a filter and the heat property.
 // Because salt is a very common spice, create a helper function called makeSalt().
-enum class Spiciness { MILD, MEDIUM, HOT }
 
-class Spice(val name: String, val spiciness: Spiciness = Spiciness.MILD) {
-    // Secondary constructor to match original task signature (spiciness as String) while keeping enum safety.
-    constructor(name: String, spiciness: String = "mild") : this(
-        name,
-        when (spiciness.lowercase()) {
-            "mild" -> Spiciness.MILD
-            "medium" -> Spiciness.MEDIUM
-            "hot" -> Spiciness.HOT
-            else -> Spiciness.MILD
-        }
-    )
+// TASK 4: CLASSES
+// Let's go back to your spices. Make Spice an abstract class, and then create some subclasses that are actual spices.
+// It's easiest (organizationally) if you make a new package, Spices, with a file, Spice, that has a main() function.
+// Copy/paste your Spice class code into that new file.
+// Make Spice abstract.
+// Create a subclass, Curry. Curry can have varying levels of spiciness, so we don't want to use the default value, but rather pass in the spiciness value.
+// Spices are processed in different ways before they can be used. Add an abstract method prepareSpice to Spice, and implement it in Curry.
+// Curry is ground into a powder, so let's call a method grind(). However, grinding is something that's not unique to curry, or even to spices, and it's always done in a grinder. So we can create an Interface, Grinder, that implements the grind() method. Do that now.
+// Then add the Grinder interface to the Curry class.
+interface Grinder {
+    fun grind()
+}
+
+interface SpiceColor {
+    val color: String
+}
+
+object YellowSpiceColor : SpiceColor {
+    override val color = "yellow"
+}
+
+abstract class Spice(
+    val name: String,
+    val spiciness: Spiciness = Spiciness.MILD,
+    color: SpiceColor
+) : SpiceColor by color {
+    abstract fun prepareSpice()
 
     val heat: Int
         get() = when (spiciness) {
@@ -28,10 +43,20 @@ class Spice(val name: String, val spiciness: Spiciness = Spiciness.MILD) {
             Spiciness.MEDIUM -> 10
             Spiciness.HOT -> 15
         }
+}
 
-    init {
-        println("Name: $name, Spiciness: ${spiciness.name.lowercase()}, Heat: $heat")
+class Curry(
+    name: String,
+    spiciness: Spiciness = Spiciness.MILD,
+    color: SpiceColor = YellowSpiceColor
+) : Spice(name, spiciness, color), Grinder {
+    override fun prepareSpice() {
+        println("Preparing $name")
+    }
+
+    override fun grind() {
+        println("Grinding $name")
     }
 }
 
-fun makeSalt() = Spice("Salt", Spiciness.MILD)
+enum class Spiciness { MILD, MEDIUM, HOT }

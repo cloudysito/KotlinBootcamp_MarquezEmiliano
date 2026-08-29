@@ -18,13 +18,13 @@ class SimpleSpice {
 }
 
 val listOfSpices = listOf(
-    Spice("curry", Spiciness.MILD),
-    Spice("pepper", Spiciness.MEDIUM),
-    Spice("cayenne", Spiciness.HOT),
-    Spice("ginger", Spiciness.MILD),
-    Spice("red curry", Spiciness.MEDIUM),
-    Spice("green curry", Spiciness.HOT),
-    Spice("red pepper", Spiciness.HOT)
+    Curry("curry", Spiciness.MILD),
+    BasicSpice("pepper", Spiciness.MEDIUM),
+    BasicSpice("cayenne", Spiciness.HOT),
+    BasicSpice("ginger", Spiciness.MILD),
+    Curry("red curry", Spiciness.MEDIUM),
+    Curry("green curry", Spiciness.HOT),
+    BasicSpice("red pepper", Spiciness.HOT)
 )
 
 val spicySpices = listOfSpices.filter { it.heat >= 10 }

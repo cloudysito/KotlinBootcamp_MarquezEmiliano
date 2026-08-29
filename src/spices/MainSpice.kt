@@ -5,18 +5,18 @@ fun main() {
     println("Simple Spice: ${simpleSpice.spiceName}, Heat: ${simpleSpice.heat}")
 
     val spices = listOf(
-        Spice("curry", Spiciness.MILD),
-        Spice("pepper", Spiciness.MEDIUM),
-        Spice("cayenne", Spiciness.HOT),
-        Spice("ginger", Spiciness.MILD),
-        Spice("red curry", Spiciness.MEDIUM),
-        Spice("green curry", Spiciness.HOT),
-        makeSalt(),
-        Spice("red pepper", Spiciness.HOT)
+        Curry("curry", Spiciness.MILD),
+        BasicSpice("pepper", Spiciness.MEDIUM),
+        BasicSpice("cayenne", Spiciness.HOT),
+        BasicSpice("ginger", Spiciness.MILD),
+        Curry("red curry", Spiciness.MEDIUM),
+        Curry("green curry", Spiciness.HOT),
+        BasicSpice("salt", Spiciness.MILD),
+        BasicSpice("red pepper", Spiciness.HOT)
     )
 
     println("All Spices:")
     spices.forEach { spice ->
-        println("${spice.name}, Spiciness: ${spice.spiciness.name.lowercase()}, Heat: ${spice.heat}")
+        println("${spice.name}, Color: ${spice.color}, Spiciness: ${spice.spiciness.name.lowercase()}, Heat: ${spice.heat}")
     }
 }
