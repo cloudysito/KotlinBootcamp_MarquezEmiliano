@@ -27,22 +27,22 @@ fun main() {
     // Use two different ways of setting them to null.
 
     // rainbowColor = null <-- ERROR
-    var greenColor : String? = "Green"
+    var greenColor: String? = "Green"
     greenColor = null
 
-    val blueColor : String? = null
+    val blueColor: String? = null
 
     // TASK 4: OPERATORS
     // Create a list with two elements that are null; do it in two different ways.
     // Next, create a list where the list is null.
-    val list : List<String?> = listOf(null, null)
-    val list2 : MutableList<String?> = mutableListOf(null, null)
-    val list3 : List<String>? = null
+    val list: List<String?> = listOf(null, null)
+    val list2: MutableList<String?> = mutableListOf(null, null)
+    val list3: List<String>? = null
 
     // TASK 5: OPERATORS
     // Create a nullable integer variable called nullTest, and set it to null. Use a null-check that increases
     // the value by one if it's not null, otherwise returns 0, and prints the result.
-    val nullTest : Int? = null
+    val nullTest: Int? = null
     val result = nullTest?.plus(1) ?: 0
     println(result)
 
@@ -87,7 +87,7 @@ fun main() {
     dayOfWeek()
     println("")
 
-    // TASK 2: FUNCTIONS
+    // TASK 2 AND 3: FUNCTIONS
     println("--------------------------")
     println("Your fortune is: ${getFortuneCookie(getBirthday())}")
 }

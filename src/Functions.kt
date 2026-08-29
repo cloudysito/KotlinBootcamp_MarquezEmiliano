@@ -56,7 +56,7 @@ import java.util.Calendar
     //     return fortunes[index]
     // }
 
-    // Use the code you created in the last practice, or copy the starter code from below.
+    // TASK 3: FUNCTIONS
     // The getFortune() function should really only be getting the fortune, and not be in the business of getting the birthday.
     // Change your Fortune Cookie program as follows:
     // Create a function called getBirthday() that gets the birthday from the user.
